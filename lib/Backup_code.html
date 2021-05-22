@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VILA ANDRADE SLUM MAP</title>
+    <div id="title"> <marquee behavior="scroll" direction="left"><h5><b> ||::::::::::|| SLUM MAPPING AND MONITORING OF VILA ANDRADE DISTRICT, STATE OF SAO PAULO, BRAZIL. ||::::::::::||</b></h5></marquee></div>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- leaflet css link  -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- leaflet js link  -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- jquery link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- leaflet geoserver plugin  -->
+<script src="lib/L.Geoserver.js"></script>
+
+<!-- leaflet fullscreen plugin  -->
+<link href='lib/leaflet.fullscreen.css' rel='stylesheet' />
+<script src='lib/Leaflet.fullscreen.js'></script>
+
+<!-- bootstrap plugin  -->
+<link rel="stylesheet" href="lib/bootstrap.min.css">
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+
+<!-- Leaflet Minimap plugin -->
+<link rel="stylesheet" href="lib/Control.MiniMap.css" />
+<script src="lib/Control.MiniMap.js" type="text/javascript"></script>
+
+<!-- Leaflet Polyline plugin -->
+<link rel="stylesheet" href="lib/Leaflet.PolylineMeasure.css" />
+<script src="lib/Leaflet.PolylineMeasure.js"></script>
+
+<!-- Leaflet Pan Control plugin -->
+<link rel="stylesheet" href="lib/L.Control.Pan.css" />
+<script src="lib/L.Control.Pan.js"></script>
+
+<!-- Leaflet Zoomslider plugin -->
+<link rel="stylesheet" href="lib/L.Control.Zoomslider.css" />
+<script src="lib/L.Control.Zoomslider.js"></script>
+
+<!-- Leaflet Sidebar plugin -->
+<link rel="stylesheet" href="lib/L.Control.Sidebar.css" />
+<script src="lib/L.Control.Sidebar.js"></script>
+
+<!-- Leaflet Easybutton plugin -->
+<link rel="stylesheet" href="lib/easy-button.css" />
+<script src="lib/easy-button.js"></script>
+
+<!-- Leaflet Mouseposition plugin -->
+<link rel="stylesheet" href="lib/L.Control.MousePosition.css" />
+<script src="lib/L.Control.MousePosition.js"></script>
+
+<!-- Leaflet coordinate master plugin -->
+<link rel="stylesheet" href="lib/Control.Coordinates.css"/>
+<script src="lib/Control.Coordinates.js"></script>
+
+<!-- Leaflet Icon marker plugin -->
+<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+<link rel="stylesheet" href="lib/leaflet.awesome-markers.css"/>
+<script src="lib/leaflet.awesome-markers.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        width: 100%;
+        height: 94vh;
+      }
+      .button {
+  border:orange;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1 {background-color: #dbc076;} /* Green */
+.button2 {background-color: #b8e6c5;} /* Blue */
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+          <div id="sidebar" class="col-md-3">
+                    <h4><strong>MAPPING AND MONITORING SLUMS</strong></h4>
+                    <h4><strong>USING GEOINFORMATION TECHNOLOGIES</strong></h4>
+                    <br>
+                    <p align="justify"> This web application was developed for my masters thesis titled "Mapping and Monitoring Slums Using Geoinformation Technologies" during the Copernicus Master in Digital Earth Programme at the Paris Lodron University of Salzburg, Austria and Palacky University Olomouc, Czech Republic. It showcased slum mapping and monitoring in Vila Andrade District of Sao Paulo, Brazil.</p>               
+                   
+                    <p align="justify"> The pixel-based, object-based and the deep learning methods were adopted for the slum mapping and the results of these methods with their respective algorithms are shown in the map interface with well-descriptive layers.</p>
+        
+                    <p align="justify"> Overall, the object-based support vector machine algorithm performed better than the other algorithms.</p>
+                    <br>
+                    <img src="img/Paraisópolis.jpg" alt="SLUM" style="width:400px;height:300px;">
+                    <p align="justify"> <strong>Paraisópolis Slum</strong> (source: Google Image)</p>
+                    <br>
+                    <img src="img/Paraisopolis_sao_paulo.jpg" alt="SLUM" style="width:400px;height:300px;">
+                    <p align="justify"> <strong>Paraisópolis Slum</strong> (source: Google Image)</p>
+                    <br>
+                    <a href="http://www.master-cde.eu/" class="button button1" role="button" target="_blank"><strong>Thesis Webpage</strong></a>
+                    <a href="https://github.com/Sheriff-Jimoh/Mapping-and-Monitoring-Slums-using-Geoinformation-Technologies" class="button button2" role="button" target="_blank"><strong>Thesis Github Repo</strong></a>
+                    <br>
+                    <br>
+                    <br>
+                    <p align="justify"> <strong>Sheriff Oluwagbenga JIMOH; 2021.</strong></p>
+                    <img src="img/CDE.jpg" alt="EMCDE" href="http://www.master-cde.eu/" style="width:90px;height:80px;">
+                    <img src="img/PLUS_Logo.jpg" alt="PLUS" href="http://www.master-cde.eu/" style="width:80px;height:50px;">
+                    <img src="img/upol.png" alt="UPOL" href="http://www.master-cde.eu/" style="width:80px;height:70px;">
+                    <img src="img/EU.jpg" alt="EU" href="http://www.master-cde.eu/" style="width:120px;height:70px;">
+                  </div>
+  <div id="map" class="col-md-6"> </div>
+</div>
+    <div class= "coordinate"></div>
+   
+<script>
+  //Adding Basemaps
+var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	maxZoom: 22,
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+	});
+
+var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	maxZoom: 22,
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+	});
+
+var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', maxZoom:22, attribution: mbAttr}),
+	streets  = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+
+var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 22,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+
+var OpenStreetMap_Mapnik1 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 22,
+});
+
+  //Map Coordinate and Centering
+	var map = L.map('map', {
+		center: [-23.628, -46.728],
+		zoom: 14,
+		layers: [streets],
+        fullscreenControl: {
+        pseudoFullscreen: false,
+        position: "topright"  }
+});
+
+  //Map control Zoom position
+  map.zoomControl.setPosition("topright");
+   //Map coordinate display
+  map.on('mousemove', function(e){
+    console.log(e)
+    //$('.coordinate').html('Lat: ${e.latlng.lat} Lng: ${e.latlng.lng}')
+  })
+  //Map Layers Setting
+	var baseLayers = {
+		"World Street Map": Esri_WorldStreetMap,
+		"World Imagery": Esri_WorldImagery,
+    "Grayscale Map": grayscale,
+		"OpenStreetMap" : OpenStreetMap_Mapnik,
+		"Street Map": streets
+	};
+ 
+  // <!------------------------WMS REQUEST--------------------!>
+  //Administrative boundary
+  var Vila_Andrade = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Vila_Andrade",
+    transparent: true,
+  });
+    Vila_Andrade.addTo(map);
+
+  //Raster Images
+  var Pixel_ML_S2_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "	slum-mapping:Pixelbased_ML_S2_VA",
+    transparent: true,
+    attribution: "Mapping and Monitoring Slums Using Geoinformation Technologies",
+    });
+
+  var Pixel_RT_S2_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "	slum-mapping:Pixelbased_RT_S2_VA",
+    transparent: true,
+    });
+
+  var Pixel_SVM_S2_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Pixelbased_SVM_S2_VA",
+    transparent: true,
+    });
+    
+  var Object_ML_S2_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Objectbased_ML_S2_VA",
+    transparent: true,
+    });
+
+  var Object_RT_S2_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Objectbased_RT_S2_VA",
+    transparent: true,
+    });
+  
+  var Object_SVM_S2_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Objectbased_SVM_S2_VA",
+    transparent: true,
+    });
+    Object_SVM_S2_VA.addTo(map);
+
+  var Pixel_ML_Ortho_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Pixelbased_ML_Ortho_VA",
+    transparent: true,
+    });
+
+  var Pixel_RT_Ortho_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Pixelbased_RT_Ortho_VA",
+    transparent: true,
+    });
+
+  var Pixel_SVM_Ortho_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Pixelbased_SVM_Ortho_VA",
+    transparent: true,
+    });
+  
+  var Object_ML_Ortho_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Objectbased_ML_Ortho_VA",
+    transparent: true,
+    });
+
+  var Object_RT_Ortho_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Objectbased_RT_Ortho_VA",
+    transparent: true,
+    });
+  
+  var Object_SVM_Ortho_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Objectbased_SVM_Ortho_VA",
+     transparent: true,
+    });
+
+  var Deeplearning_UNET_Ortho_VA = L.Geoserver.wms("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "		slum-mapping:Deeplearning_UNET_Ortho_VA",
+    transparent: true,
+    });
+
+  var layerLegend = L.Geoserver.legend("http://158.194.94.29:8081/geoserver/wms", {
+    layers: "slum-mapping:Pixelbased_SVM_S2_VA",
+  });
+  layerLegend.addTo(map)
+
+  //Layers Addition to Map
+  var overlays = {
+		"Pixel Based Maximum Likelihood (Sentinel-2 Imagery)": Pixel_ML_S2_VA,
+    "Pixel Based Random Trees (Sentinel-2 Imagery)": Pixel_RT_S2_VA,
+    "Pixel Based Support Vector Machine (Sentinel-2 Imagery)": Pixel_SVM_S2_VA,
+    "Object Based Maximum Likelihood (Sentinel-2 Imagery)": Object_ML_S2_VA,
+    "Object Based Random Trees (Sentinel-2 Imagery)": Object_RT_S2_VA,
+    "Object Based Support Vector Machine (Sentinel-2 Imagery)": Object_SVM_S2_VA,
+    "Pixel Based Maximum Likelihood (Orthophoto)": Pixel_ML_Ortho_VA,
+    "Pixel Based Random Trees (Orthophoto)":Pixel_RT_Ortho_VA,
+    "Pixel Based Support Vector Machine (Drone Imagery)": Pixel_SVM_Ortho_VA,
+    "Object Based Maximum Likelihood (Orthophoto)": Object_ML_Ortho_VA,
+    "Object Based Random Trees (Drone Imagery)": Object_RT_Ortho_VA,
+    "Object Based Support Vector Machine (Orthophoto)": Object_SVM_Ortho_VA,
+    "Deep Learning U-Net Model (Orthophoto)": Deeplearning_UNET_Ortho_VA,
+    "Vila Andrade Administrative Boundary": Vila_Andrade
+  };
+    L.control.layers(baseLayers, overlays).addTo(map);
+    //var popup = L.popup();
+
+  //Add Mouse Position, Scale, Zoom slider and Polylinemeasure, Sidebar and Minimap
+  L.control.mousePosition ({position: "bottomright"}).addTo(map);
+  L.control.scale({position: "bottomright"}).addTo(map)
+  //L.control.pan().addTo(map);
+  L.control.zoomslider ({position: "topleft"}).addTo(map);
+  let polylineMeasure = L.control.polylineMeasure ({position:'topleft', unit:'metres', showBearings:true, clearMeasurementsOnStop: false, showClearControl: true, showUnitControl: true})
+      polylineMeasure.addTo (map);
+  var sidebar = L.control.sidebar('sidebar', {position: 'left'}).addTo(map);
+  var  ctlEasyButton = L.easyButton('fa-exchange', function () {
+       sidebar.toggle();}).addTo(map);
+ 	var miniMap = new L.Control.MiniMap(OpenStreetMap_Mapnik1, { toggleDisplay: true, position: 'bottomleft', minimized: "true" }).addTo(map);
+   
+</script>
+</body>
+</html>
