@@ -6,7 +6,10 @@ It showcased slum mapping and monitoring in Lagos Mainland Local Government Area
 ## License
 
 <p align="center">
-  <img src="media/Touristmap.PNG" title="Tourist Attractions in Nigeria" width="100%" />
+  <img src="img/LagosMainland.PNG" title="Lagos Mainland, (Lagos) Nigeria" width="100%" />
+</p>
+<p align="center">
+  <img src="img/VilaAndrade.PNG" title="Vila Andrade, (Sao Paulo) Brazil" width="100%" />
 </p>
 
 
